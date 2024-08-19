@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="\css\otpStyle.css">
+    <title>OTP verification</title>
+</head>
+<body>
+    <div class="background">
+        <div class="mainBox">
+            <h1>Verification</h1>
+            <div class="verification_img">
+                <img src="\img\Enter OTP-pana-2.png">
+            </div>
+            <p class="instruction mb-0">Enter the OTP sent to your registered email id.</p>
+            <span id="otpError" style="color: red;"></span>
+            <form  id="otpForm" >
+                <div class="otp_input">
+                    <input type="text" id="value1" name="value1" maxlength="1" autofocus/>
+                    <input type="text" id="value2" name="value2" maxlength="1" disabled />
+                    <input type="text" id="value3" name="value3" maxlength="1" disabled />
+                    <input type="text" id="value4" name="value4" maxlength="1" disabled />
+                    <input type="text" id="value5" name="value5" maxlength="1" disabled />
+                    <!-- <input type="number" maxlength="1"/> -->
+                </div>
+                <p  style="color: red; font-size: 15px; font-weight: 500;" class="text-center mt-3"><span id="timer">05:00</span></p>
+                <!-- <p class="request">
+                    Didn't get the otp?<a href="#"><b>Resend</b></a>
+                </p> -->
+                    <button type="submit">VERIFY</button>
+            </form>  
+        </div>
+    </div>
+
+    <div id="SuccessBackground" class="overlayBackground">
+        <div class="commonCard" id="verificationSuccess">
+            <div class="successImg">
+                <img src="\img\image.png" alt="">
+            </div>
+            <h1>Successfull!</h1>
+            <p style="font-weight: 500;" class="mb-0">Your account have been successfully verified.</p>
+            <button>GO TO LOGINPAGE</button>
+        </div>
+    </div>
+    <script>
+        const inputs = document.querySelectorAll("input")
+
+        inputs.forEach((input,index1) => {
+            input.addEventListener ("keyup", (e) => {
+
+                const currentInput = input,
+                nextInput = input.nextElementSibling,
+                prevInput = input.previousElementSibling;
+
+                if(nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== "") {
+                    nextInput.removeAttribute("disabled");
+                    nextInput.focus();
+                }
+
+                if(e.key === "Backspace") {
+
+                    inputs.forEach((input, index2) => {
+
+                        if(index1 <= index2 && prevInput) {
+                            input.setAttribute("disabled", true);
+                            currentInput.value = "";
+                            prevInput.focus();
+                        }
+                    });
+                }
+            });
+        });
+
+        let timeRemaining = 300; // 5 minutes in seconds
+        const countdownElement = document.getElementById('timer');
+        const countdownInterval = setInterval(() => {
+            timeRemaining--;
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            countdownElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        
+        },1000);    
+
+        // Otp validation
+        document.getElementById('otpForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const value1 = document.getElementById('value1').value;
+            const value2 = document.getElementById('value2').value;
+            const value3 = document.getElementById('value3').value;
+            const value4 = document.getElementById('value4').value;
+            const value5 = document.getElementById('value5').value;
+            const otpError = document.getElementById('otpError')
+            const SuccessBackground = document.getElementById('SuccessBackground');
+            // Basic validation to ensure all fields are filled
+            if (!value1 || !value2 || !value3 || !value4 || !value5) {
+                otpError.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> All fields are mandatory!`;
+                return;
+            }
+
+            const otpData = { value1, value2, value3, value4, value5 };
+
+            try {
+                const response = await fetch('http://localhost:3000/api/users/otp', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(otpData)
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    SuccessBackground.style.display = "flex";
+                    setTimeout(() => {
+                        window.location.href = '/';
+                    }, 3000);
+                } else {
+                    otpError.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Invalid OTP! Please try again`;
+                }
+                
+            } catch (error) {
+                otpError.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Error verifying OTP. Please try again.`; 
+            }
+        });  
+        //  End otp validation  
+    </script>
+</body>
+</html>

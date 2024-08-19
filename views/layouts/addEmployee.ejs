@@ -1,0 +1,152 @@
+<div>
+    <div  id="add_form" class="row bg add_form p-4"  >
+        <form id="registrationForm" >
+            <div class="form_header d-flex justify-content-between p-0">
+                <h3 id="main_heading" class="form_main_heading">Add Employee</h3>
+                <button onclick="form_hide()" id="form_close" class="close_btn d-flex"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="img_upload" >
+                <input type="file" id="upload" />
+                <label for="upload" id="addImgcover" class=" file_upload d-flex flex-column align-items-center">
+                    <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                    <h3>Upload Image</h3>
+                    <h6>PNG, JPG files are allowed</h6>
+                </label>
+    
+            <!-- edit form -->    
+            </div>
+             <div id="edit_form" class="edit_form align-items-center gap-3">
+                <label id="editImgcover" class="file_upload" for="editUpload" >
+                    <img id="editImg" src="/">
+                </label>
+                <label for="editUpload" class=" btn btn-light d-flex flex-column align-items-center">
+                    Change
+                </label>
+                <input type="file" id="editUpload">
+            </div>
+            <!-- END edit form -->
+            <div class="user_name_section row pt-4">
+                <div class="col-lg-4 col-md-12 input-Control ">
+                    <label  for="salutation" class="form-label ">Salutation</label>
+                    <select class="form-select form-select-lg" aria-label="Default select example" id="salutation"  >
+                        <option value="">select</option>
+                        <option value="Mr">Mr</option>
+                        <option value="Ms">Ms</option>
+                        <option value="Dr">Dr</option>
+                    </select>
+                    <span  id="salutationError" class="error"></span>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 input-Control ">
+                    <label for="first-name" class="form-label fondspace">First Name</label>
+                    <input class="form-control form-control-lg" id="firstName" type="text" placeholder="enter firstname" aria-label="form-control-sm example"  />
+                    <span id="firstNameError" class="error"></span>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 input-Control ">
+                    <label for="last-name" class="form-label important fondspace">Last Name</label>
+                    <input class="form-control form-control-lg" id="lastName" type="text" placeholder="enter lastname" aria-label=".form-control-sm example"  />
+                    <span id="lastNameError" class="error"></span>
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-lg-6 input-Control">
+                    <label for="exampleInputEmail1" class="form-label">User Name</label>
+                    <input type="text" class="form-control form-control-lg" id="username" placeholder="enter username" aria-describedby="emailHelp" >
+                    <span id="usernameError" class="error"></span>
+                </div>
+                <div class="col-lg-6 input-Control">
+                    <label for="enter-number" class="form-label">Password</label>
+                    <input type="password" class="form-control form-control-lg" id="password" autocomplete="off"  placeholder="enter password" aria-describedby=".form-control-sm example" >
+                    <span id="passwordError" class="error"></span>
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-lg-6 col-md-6 col-sm-6 input-Control">
+                    <label for="exampleInputEmail1" class="form-label">Email Address</label>
+                    <input type="email" class="form-control form-control-lg" id="email" placeholder="mail@simmple.com" aria-describedby="emailHelp" >
+                    <span id="emailError" class="error"></span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 input-Control">
+                    <label for="enter-number" class="form-label">Mobile Number</label>
+                    <input type="number" class="form-control form-control-lg" id="phone" placeholder="enter your number" aria-describedby=".form-control-sm example" onkeyup="checkValue(event)" >
+                    <span id="phoneError" class="error"></span>
+                </div>
+            </div>
+            <div class="row pt-3 align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-6 input-Control">
+                    <label for="last-name" class="form-label">date of birth</label>
+                    <input type="date" class="form-control form-control-lg" id="dob" placeholder="select date of birth" aria-label=".form-control-sm example" >
+                    <span id="dobError" class="error"></span>
+                </div>
+                <div  class="col-lg-6 col-md-6 col-sm-6">
+                    <label for="gender" class="form-label mb-4">Gender</label>
+                    <div id="gender" class="d-flex gap-5">
+                        <div  class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" >
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              Male
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              Female
+                            </label>
+                        </div>
+                    </div>
+                    <span id="genderError" class="error"></span>
+                </div>
+            </div>
+            <div class="row  pt-4">
+                <div class="col-12 input-Control">
+                    <label for="last-name" class="form-label ">Qualification</label>
+                 <input class="form-control form-control-lg" id="qualifications" type="text" placeholder="enter your qualification" aria-label=".form-control-sm example"  >
+                 <span id="qualificationsError" class="error"></span>
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-12 input-Control">
+                    <label for="last-name" class="form-label">Address</label>
+                    <input type="text" class="form-control form-control-lg" id="address" placeholder="enter address"  aria-label=".form-control-sm example" >
+                    <span id="addressError" class="error"></span>
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-lg-6 col-md-6 col-sm-6 input-Control">
+                    <label for="salutation" class="form-label ">Country</label>
+                    <select  id="country" class="form-select form-select-lg" aria-label="Default select example" >
+                        <option value="">enter country</option>
+                        <option value="India">India</option>
+                    </select>
+                    <span id="countryError" class="error"></span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 input-Control">
+                    <label for="salutation" class="form-label ">State</label>
+                    <select id="state" class="form-select form-select-lg" aria-label="Default select example" >
+                        <option value="">enter state</option>
+                        <option>Kerala</option>
+                        <option>Tamilnadu</option>
+                        <option>Karnataka</option>
+                    </select>
+                    <span id="stateError" class="error"></span>
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-lg-6 col-md-6 col-sm-6 input-Control">
+                    <label for="exampleInputEmail1" class="form-label">City</label>
+                    <input type="text" class="form-control form-control-lg" id="city" placeholder="enter city" aria-describedby="emailHelp" >
+                    <span id="cityError" class="error"></span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 input-Control">
+                    <label for="enter-number" class="form-label">Pin/Zip</label>
+                    <input type="number" class="form-control form-control-lg" id="pinZip" placeholder="enter pin/zip" aria-describedby=".form-control-sm example">
+                    <span id="pinZipError" class="error"></span>
+                </div>
+            </div>
+        </form>
+        <div class="pt-4 d-flex justify-content-end bg footer w-100">
+            <button onclick="form_hide()" id="" class="btn btn-light  me-2">Cancel</button>
+            <button onclick="add_employee()" id="add_btn" class="btn btn-primary ">Add Employee</button>
+            <button onclick="editUpdate()" id="edit_btn" class="btn btn-primary ">Save Changes</button>
+        </div>
+    </div>
+</div>

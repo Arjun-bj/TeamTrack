@@ -1,0 +1,175 @@
+<%- include('layouts/dashboardHeader') %>
+
+
+<div class=" main_container">  <!-- main container -->
+    <div class="side_menu d-flex">  <!-- side menu -->
+        <div class="side_head p-4">
+            <h3>
+                Employee
+                <span>Management</span>
+            </h3>
+            
+        </div>
+        <!-- <ul class="d-flex">
+            <li><i class="fa-solid fa-house"></i>Dashboard</li>
+            <li><i class="fa-solid fa-chart-simple"></i>Employees</li>
+            <li><i class="fa-solid fa-user"></i>My Profile</li>
+            <li><i class="fa-solid fa-lock"></i>Logout</li>
+        </ul> -->
+        <ul class="d-flex">
+            <li><a href="/home"><i class="fa-solid fa-house"></i><h5>Dashboard</h5></a></li>
+            <li><a href="/home"><i class="fa-solid fa-chart-simple"></i><h5>Employees</h5></a></li>
+            <li><a href="#"><i class="fa-solid fa-user"></i><h5>My Profile</h5></a></li>
+            <li><a id="logoutBtn"><i class="fa-solid fa-lock"></i><h5>Logout</h5></a></li>
+        </ul>
+        <div class="brand_logo d-flex">
+            <h5>Powered by</h5>
+            <div>
+                <img src="img/image 1.png">
+            </div>
+        </div>
+    </div> <!-- END side menu -->
+    <div class="main_content_area"> <!-- Main content area -->
+        <div class="main_content px-3"> <!-- Main content -->
+            <div class="content_header d-flex justify-content-between align-items-center p-4 pr-0">
+                <div class="main_heading align-items-center">
+                    <h5>Dashboard / Employees</h5>
+                    <h3>Employees</h3>
+                </div>
+                <div class="search d-flex">
+                    <div class="search_bar">
+                        
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input name="searchTerm" id="searchInput" type="search" placeholder="Search"  >
+                    </div>
+                    <i class="fa-regular fa-bell"></i>
+                    <img src="img\Avatar Style 6.png">
+                </div>
+            </div>
+            <div class="main_employees_list d-flex">
+                <div class="table_heading d-flex justify-content-between align-items-center">
+                    <div class=" emplyee_selection d-flex">
+                        <h5>Employees List</h5>
+                        <select id="employeeList" class="form-select" aria-label="Default select example">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option selected>5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <p id="totalCount">of</p>
+                    </div>
+                    <button onclick="clickfunction()" id="add_employe_btn" class="btn btn-primary">Add Employee</button>
+                </div>
+                <table class="table"> <!-- Empolyee table -->
+                    <thead>
+                        <tr>
+                        <th scope="col">Sl.No<i class="fa-solid fa-angle-down"></i></th>
+                        <th scope="col">Name<i class="fa-solid fa-angle-down"></i></th>
+                        <th scope="col">Email<i class="fa-solid fa-angle-down"></i></th>
+                        <th scope="col">Phone<i class="fa-solid fa-angle-down"></i></th>
+                        <th scope="col">Gender<i class="fa-solid fa-angle-down"></i></th>
+                        <th scope="col">DOB<i class="fa-solid fa-angle-down"></i></th>
+                        <th scope="col">Country<i class="fa-solid fa-angle-down"></i></th>
+                        <th></th>
+                        </tr>
+                    </thead>                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+                    <tbody  id="table_body" class="table_body">
+                        <!-- <tr>
+                        <th scope="row">#01</th>
+                        <td>
+                            <img class="me-2" src="img-1.png" alt="">
+                            Mr. Michael Johnson
+                        </td>
+                        <td>michaeljohnson@example.com</td>
+                        <td>5551234567</td>
+                        <td>Male</td>
+                        <td>10 December 1985</td>
+                        <td>USA</td>`
+                        <td>
+                             <button class="close_btn d-flex">
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </button>
+                            <div class="options_box d-flex flex-column justify-content-between">
+                                <h6><a><i class="fa-regular fa-eye"></i>View Details</a></h6>
+                                <h6><a><i class="fa-solid fa-pen"></i>Edit</a></h6>
+                                <h6><a><i class="fa-regular fa-trash-can"></i>Delete</a></h6>
+                            </div>
+                        </td>
+                        </tr> -->
+                    </tbody>
+                </table> <!-- END Employee table -->
+            </div>
+            <div class="pages d-flex py-4">
+                <div class=" pages_list d-flex ">
+                    <span id="firstPage" ><a><i class="fa-solid fa-angles-left"></i></a></span>
+                    <span id="prevPage" ><a><i class="fa-solid fa-angle-left"></i></a></span>
+                    <div id="newPagesbtn" class="d-flex gap-2" ></div>
+                    <span id="nextPage" ><a><i class="fa-solid fa-angle-right"></i></a></span>
+                    <span id="lastPage" ><a><i class="fa-solid fa-angles-right"></i></a></span>
+                </div>
+            </div>
+        </div> <!-- END Main content -->
+        <div class="copy_right d-flex justify-content-between"> <!-- footer -->
+            <div>
+                <h6>© 2023  All Rights Reserved. Stackup</h6>
+            </div>
+            <div class="d-flex gap-4">
+                <h6><a href="#">Terms of Use</a></h6>
+                <h6><a href="#">Privacy Policy</a></h6>
+            </div>
+        </div> <!-- END footer -->
+    </div> <!-- END Main content area -->
+</div>  <!-- END main container -->
+   
+<%- include('layouts/addEmployee') %>
+
+    <!-- alert message -->
+    <div id="delete_message" class="alert flex-column m-0 p-4 gap-4">
+        <div class="head d-flex justify-content-between">
+            <h3 class=" ">Delete Employee</h3>
+            <button onclick="form_hide()" class="close_btn d-flex"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <p class="my-4">Are you sure you want to delete this employee?</p>
+        <div class="pt-4 d-flex justify-content-end bg footer">
+            <button onclick="form_hide()" class="btn btn-light me-2">Cancel</button>
+            <button onclick="form_hide()" id="delete_btn" class="btn btn-primary ">Delete</button>
+        </div>
+    </div>
+    <!-- logout -->
+    <div class="overlayBackground" id="logoutMainCard">
+        <div class="commonCard" id="logoutCard">
+            <div class="logoutImg">
+                <img src="/img/logout.png" alt="">
+            </div>
+            <!-- <h1>Successfull!</h1> -->
+            <p>You're leaving . . .<br>Are you sure?</p>
+            <button id="cancelBtn">STAY IN</button>
+            <button class="confirmBtn" id="confirmBtn">LOGOUT</button>
+        </div>
+    </div>
+    <!-- End logout -->
+    <!-- END alert message -->
+    <div id="successpopup" class="successpopup d-flex align-items-center p-3 rounded-4">
+        <div id="successAnimation" class="success-animation me-3">
+            <svg id="checkmark" class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle id="checkmarkCircle" class="checkmark__circle" cx="26" cy="26" r="25" fill="none" /><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /></svg>
+            <img  id="trashImg" src="img\bin.png">
+            <img  id="editPopImg" src="img\edit.png">
+        </div>
+        <div id="popupContent" class="popupContent">
+            <h5 id="popHead" class="m-0 fw-bold">SUCCESS!</h5> 
+            <p id="popSubhead" class="m-0 text-dark">Employee added successfully!</p>
+        </div>
+    </div>
+    <!-- Overlays -->
+    <div onclick="form_hide()" id="overlay"></div>
+    <div onclick="optionshide()" class="optionsOverlay" id="optionsOverlay"></div>
+    <!-- END Overlays -->
+
+
+<%- include('layouts/dashboardFooter') %>

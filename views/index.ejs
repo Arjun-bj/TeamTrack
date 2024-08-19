@@ -1,0 +1,86 @@
+<%- include('layout/signupHeader') %>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form  id="signupForm">
+                <div id="signupPopup" class="success signupSuccess">
+                    <div class="successImg">
+                        <img src="/img/communication.png"/>
+                    </div>
+                    <div class="popupContent">
+                        <h5>Sent</h5>
+                        <p>Otp sent successfully.</p>
+                    </div>
+                </div>
+                <div class="error-message" id="errorMsgSignup">
+                </div>
+                <h1 class="heading">Create Account</h1>
+                <span>or use your email for registration</span>
+                <input type="text" placeholder="Name" name="username" id="userName"/>
+                <input type="email" placeholder="Email" name="email" id="Email" />
+                <input type="password" placeholder="Password" name="password" id="Password" />
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form id="loginForm">
+                <div id="loginSuccess" class="success">
+                    <div class="successImg">
+                        <img src="img/check1.png"/>
+                    </div>
+                    <div class="popupContent">
+                        <h5>Success</h5>
+                        <p>You have been successfully loged in.</p>
+                    </div>
+                </div>
+                <div id="errorMsgLogin" class="error-message">
+                </div>
+                <h1 class="heading">Log in</h1>
+                <span>or use your account</span>
+                <input type="email" placeholder="Email" id="email" name="email"/>
+                <input type="password" placeholder="Password" id="password" name="password"/>
+                <!-- <a href="#">Forgot your password?</a> -->
+                <div class="social-container">
+                    <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2F" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.google.com/" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="https://in.linkedin.com/" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <button id="loginBtn" type="submit" >Log In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <div class="signin-img">
+                        <img src="img/Mobile login-rafiki.png">
+                    </div>
+                    <button class="ghost" id="signIn">Log In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <div class="login-img">
+                        <img src="\img\12953573_Data_security_05-removebg-preview (2).png">
+                    </div>
+                    <button type="submit"  class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="overlayBackground" id="loginSuccessCard">
+        <div class="commonCard" id="successCard">
+            <div class="loginImg">
+                <img src="/img/image.png" alt="">
+            </div>
+            <h1>Login successfull!</h1>
+            <p>Succesfully loged in. Welcome on board.</p>
+        </div>
+    </div> -->
+<%- include('layout/signupFooter') %>

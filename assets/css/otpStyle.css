@@ -1,0 +1,131 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Montserrat',sans-serif;
+    letter-spacing: 0.5px
+}
+
+.background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(120deg, rgb(41, 128, 185), rgb(142, 68, 173));
+    position: absolute;
+}
+.mainBox{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+    border-radius: 10px;
+    padding: 30px;
+    gap: 15px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			    0 10px 10px rgba(0,0,0,0.22);
+}
+.verification_img{
+    width: 70%;
+}
+.verification_img img{
+    max-width: 100%;
+}
+ h1{
+    color: #2980b9;
+    font-weight: 600;
+}
+p{
+    color: grey;
+}
+.instruction{
+    font-weight: 600;
+    text-align: center;
+} 
+.request{
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0px;
+    color: black;
+}
+.request a{
+    font-weight: 500;
+    color: #2980b9;
+}
+.otp_input{
+    display: grid;
+    grid-template-columns: repeat(5,auto);
+    gap: 10px;
+}
+.otp_input input{
+    max-width: 50px;
+    height: 50px;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+    border: 2px solid #a3a3a3;
+    border-radius: 6px;
+    background-color: #f0f0f0;
+    outline: none;
+}
+input:focus{
+    border: 2px solid #2980b9;
+}
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button{
+    display: none;
+}
+ button{
+    border-radius: 20px;
+    padding: 12px 60px;
+    width: 100%;
+    border: #2980b9;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #FFF;
+    /* background-color: #2980b9; */
+    background: linear-gradient(120deg, rgb(41, 128, 185), rgb(142, 68, 173));
+    cursor: pointer;
+    margin: 15px 0;
+}
+button:active {
+	transform: scale(0.95);
+}
+.overlayBackground{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(5, 3, 16, 0.60);
+    backdrop-filter: blur(3px);
+    position: relative;
+    display: none;
+}
+.commonCard{
+    width: 22%;
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+    border-radius: 10px;
+    text-align: center;
+}
+.successImg{
+    width: 80%;
+}
+.successImg img{
+    width: 100%;
+}
+.commonCard button{
+    width: 90%;
+    /* margin: 15px 0; */
+    /* background: linear-gradient(120deg, rgb(41, 128, 185), rgb(142, 68, 173)); */
+}
